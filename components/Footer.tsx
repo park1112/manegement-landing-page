@@ -52,10 +52,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
-            © {currentYear} 농가 관리 시스템. All rights reserved.
-          </p>
+        <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 mb-4 md:mb-0">
+              © {currentYear} 농가 관리 시스템. All rights reserved.
+            </p>
+            <div className="flex space-x-4">
+              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">
+                개인정보처리방침
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+                이용약관
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
