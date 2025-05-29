@@ -1,12 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { 
-  Users, 
-  MapPin, 
-  FileText, 
-  Calendar, 
-  BarChart3, 
+import {
+  Users,
+  MapPin,
+  FileText,
+  Calendar,
+  BarChart3,
   Shield,
   Smartphone,
   Cloud
@@ -65,7 +65,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="py-20 bg-green-50">
+    <section className="py-20 bg-gradient-to-b from-green-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export default function Features() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-600">
             주요 기능
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -82,7 +82,7 @@ export default function Features() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-green-600">
           {features.map((feature, index) => (
             <motion.div
               key={index}

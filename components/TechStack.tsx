@@ -35,7 +35,7 @@ const techStack = [
 
 export default function TechStack() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,7 +44,7 @@ export default function TechStack() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-600">
             기술 스택
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -52,7 +52,7 @@ export default function TechStack() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-green-600">
           {techStack.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
@@ -98,7 +98,7 @@ export default function TechStack() {
         >
           <div className="inline-flex items-center justify-center p-8 bg-green-100 rounded-2xl">
             <div className="text-left">
-              <h3 className="text-2xl font-bold mb-2">왜 이 기술들을 선택했나요?</h3>
+              <h3 className="text-2xl font-bold mb-2 text-green-600">왜 이 기술들을 선택했나요?</h3>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center">
                   <Check className="w-4 h-4 text-green-600 mr-2" />

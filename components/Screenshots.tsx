@@ -28,7 +28,7 @@ const screenshots = [
 
 export default function Screenshots() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,7 +37,7 @@ export default function Screenshots() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-600">
             앱 미리보기
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -59,11 +59,11 @@ export default function Screenshots() {
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{screenshot.title}</h3>
                 <p className="text-gray-600">{screenshot.description}</p>
               </div>
-              
+
               <div className="relative mx-auto" style={{ maxWidth: '300px' }}>
                 <div className="relative bg-gray-900 rounded-[2.5rem] p-2 shadow-2xl">
                   <div className="absolute top-[10px] left-1/2 transform -translate-x-1/2 w-[60px] h-[5px] bg-gray-800 rounded-full"></div>
-                  
+
                   <div className="relative overflow-hidden rounded-[2rem] bg-white">
                     <div className="aspect-[9/16] relative">
                       <Image
@@ -78,7 +78,7 @@ export default function Screenshots() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="absolute bottom-[8px] left-1/2 transform -translate-x-1/2 w-[100px] h-[4px] bg-gray-800 rounded-full"></div>
                 </div>
               </div>

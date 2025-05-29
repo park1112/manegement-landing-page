@@ -5,10 +5,13 @@ import { Sprout } from 'lucide-react'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-green-50">
       {/* 배경 애니메이션 */}
       <div className="absolute inset-0 gradient-animation opacity-10"></div>
-      
+
+      {/* 배경 패턴 */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
       {/* 플로팅 요소들 */}
       <div className="absolute inset-0">
         <motion.div
@@ -47,7 +50,7 @@ export default function Hero() {
           <div className="inline-flex items-center justify-center p-3 bg-green-100 rounded-full mb-4">
             <Sprout className="w-12 h-12 text-green-600" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-green-600">
             농가 관리 시스템
           </h1>
           <p className="text-2xl md:text-3xl text-gray-600 mb-8">
@@ -105,7 +108,7 @@ export default function Hero() {
       {/* 하단 웨이브 */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="#f0fdf4"/>
+          <path d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V120Z" fill="#f0fdf4" />
         </svg>
       </div>
     </section>
