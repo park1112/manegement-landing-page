@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Sprout className="w-8 h-8 text-green-600 mr-2" />
-            <span className="font-bold text-xl">농가 관리 시스템</span>
+            <span className="font-bold text-xl text-green-600">아르고</span>
           </div>
 
           {/* Desktop menu */}

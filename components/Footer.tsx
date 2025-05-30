@@ -12,11 +12,11 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
               <Sprout className="w-8 h-8 text-green-500 mr-2" />
-              <span className="text-2xl font-bold">농가 관리 시스템</span>
+              <span className="text-2xl font-bold">아르고</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Flutter와 Supabase로 구축된 현대적인 농가 관리 솔루션으로
-              스마트한 농업 경영을 시작하세요.
+              아르고의 농가 관리 시스템 - Flutter와 Supabase로 구축된
+              현대적인 농가 관리 솔루션으로 스마트한 농업 경영을 시작하세요.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -53,9 +53,21 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="mb-6">
+            <h3 className="font-semibold text-lg mb-4">사업자 정보</h3>
+            <div className="text-gray-400 text-sm space-y-1">
+              <p>상호명: 아르고 | 대표자: 박현재</p>
+              <p>사업자등록번호: 196-10-01838</p>
+              <p>주소: 경상남도 함양군 안의면 안의대등길 18-3</p>
+              <p>개업일: 2021년 04월 28일</p>
+              <p>업태: 소매업 | 종목: 정보통신업, 컴퓨터봉신업, 정보봉신업, 정보통신업 등</p>
+              <p>전화: 055-964-4722</p>
+            </div>
+          </div>
+
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-4 md:mb-0">
-              © {currentYear} 농가 관리 시스템. All rights reserved.
+              © {currentYear} 아르고. All rights reserved.
             </p>
             <div className="flex space-x-4">
               <a href="/privacy" className="text-gray-400 hover:text-white transition-colors text-sm">

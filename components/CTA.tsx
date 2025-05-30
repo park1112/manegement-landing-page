@@ -18,7 +18,7 @@ export default function CTA() {
             지금 시작하세요
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            농가 관리 시스템으로 농업 경영을 혁신하세요.<br />
+            아르고의 농가 관리 시스템으로 농업 경영을 혁신하세요.<br />
             무료로 시작하고 필요에 따라 확장할 수 있습니다.
           </p>
           
