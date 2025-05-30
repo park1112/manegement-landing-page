@@ -4,6 +4,12 @@ import { motion } from 'framer-motion'
 import { Sprout } from 'lucide-react'
 
 export default function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-50 to-green-50">
       {/* 배경 애니메이션 */}
@@ -74,10 +80,14 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <button className="px-8 py-4 bg-green-600 text-white rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
+          <button 
+            onClick={() => scrollToSection('contact')}
+            className="px-8 py-4 bg-green-600 text-white rounded-lg font-semibold text-lg hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
             시작하기
           </button>
-          <button className="px-8 py-4 bg-white text-green-600 border-2 border-green-600 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors duration-200 shadow-lg hover:shadow-xl">
+          <button 
+            onClick={() => scrollToSection('features')}
+            className="px-8 py-4 bg-white text-green-600 border-2 border-green-600 rounded-lg font-semibold text-lg hover:bg-green-50 transition-colors duration-200 shadow-lg hover:shadow-xl">
             더 알아보기
           </button>
         </motion.div>

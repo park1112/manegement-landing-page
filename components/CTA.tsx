@@ -4,8 +4,12 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 
 export default function CTA() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-600">
+    <section id="contact" className="py-20 bg-gradient-to-r from-green-600 to-emerald-600">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -23,11 +27,15 @@ export default function CTA() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <button className="group px-8 py-4 bg-white text-green-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center">
+            <button 
+              onClick={scrollToTop}
+              className="group px-8 py-4 bg-white text-green-600 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center">
               무료 체험 시작
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-all duration-200">
+            <button 
+              onClick={() => window.location.href = 'mailto:info@argo.com'}
+              className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold text-lg hover:bg-white/10 transition-all duration-200">
               문의하기
             </button>
           </div>

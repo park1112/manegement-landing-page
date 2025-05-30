@@ -14,6 +14,16 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+    setIsOpen(false)
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,6 +40,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 className="text-gray-700 hover:text-green-600 transition-colors font-medium"
+                onClick={(e) => handleClick(e, item.href)}
               >
                 {item.label}
               </a>
@@ -62,7 +73,7 @@ export default function Navbar() {
                   key={item.label}
                   href={item.href}
                   className="px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleClick(e, item.href)}
                 >
                   {item.label}
                 </a>

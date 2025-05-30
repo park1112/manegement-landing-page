@@ -28,7 +28,7 @@ const screenshots = [
 
 export default function Screenshots() {
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="screenshots" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
