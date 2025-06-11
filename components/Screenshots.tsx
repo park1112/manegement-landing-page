@@ -40,7 +40,7 @@ export default function Screenshots() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-600">
             앱 미리보기
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             직관적이고 사용하기 쉬운 인터페이스
           </p>
         </motion.div>
@@ -57,7 +57,7 @@ export default function Screenshots() {
             >
               <div className="mb-4">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">{screenshot.title}</h3>
-                <p className="text-gray-600">{screenshot.description}</p>
+                <p className="text-gray-700">{screenshot.description}</p>
               </div>
 
               <div className="relative mx-auto" style={{ maxWidth: '300px' }}>
@@ -93,7 +93,7 @@ export default function Screenshots() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             모든 스크린샷은 실제 앱 화면입니다
           </p>
         </motion.div>

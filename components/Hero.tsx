@@ -59,7 +59,7 @@ export default function Hero() {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-green-600">
             아르고 농가 관리 시스템
           </h1>
-          <p className="text-2xl md:text-3xl text-gray-600 mb-8">
+          <p className="text-2xl md:text-3xl text-gray-700 mb-8">
             스마트한 농업 경영의 시작
           </p>
         </motion.div>
@@ -68,7 +68,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-12"
+          className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12"
         >
           Flutter와 Supabase로 구축된 아르고의 현대적인 농가 관리 시스템으로<br />
           농가, 농지, 계약, 작업 일정을 효율적으로 관리하세요.
@@ -109,7 +109,7 @@ export default function Hero() {
               <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">
                 {stat.value}
               </div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-700">{stat.label}</div>
             </div>
           ))}
         </motion.div>

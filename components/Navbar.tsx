@@ -1,37 +1,52 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X, Sprout } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 const navItems = [
   { label: '기능', href: '#features' },
   { label: '미리보기', href: '#screenshots' },
   { label: '기술', href: '#tech' },
+  { label: '파일 리네이밍', href: '/rename' },
   { label: '문의', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const targetId = href.replace('#', '')
-    const element = document.getElementById(targetId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+    if (href.startsWith('/')) {
+      // 내부 라우팅은 기본 동작 유지
+      setIsOpen(false)
+    } else if (href.startsWith('#')) {
+      if (isHomePage) {
+        // 홈페이지에서는 스크롤
+        e.preventDefault()
+        const targetId = href.replace('#', '')
+        const element = document.getElementById(targetId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      } else {
+        // 다른 페이지에서는 홈으로 이동 후 스크롤
+        window.location.href = '/' + href
+      }
+      setIsOpen(false)
     }
-    setIsOpen(false)
   }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <a href="/" className="flex items-center hover:opacity-80 transition-opacity">
             <Sprout className="w-8 h-8 text-green-600 mr-2" />
             <span className="font-bold text-xl text-green-600">아르고</span>
-          </div>
+          </a>
 
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
@@ -45,9 +60,13 @@ export default function Navbar() {
                 {item.label}
               </a>
             ))}
-            <button className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+            <a 
+              href={isHomePage ? "#contact" : "/#contact"}
+              onClick={(e) => handleClick(e, '#contact')}
+              className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors inline-block"
+            >
               시작하기
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -78,9 +97,13 @@ export default function Navbar() {
                   {item.label}
                 </a>
               ))}
-              <button className="mx-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+              <a 
+                href={isHomePage ? "#contact" : "/#contact"}
+                onClick={(e) => handleClick(e, '#contact')}
+                className="mx-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors block text-center"
+              >
                 시작하기
-              </button>
+              </a>
             </div>
           </motion.div>
         )}

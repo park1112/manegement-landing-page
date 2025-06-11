@@ -77,12 +77,12 @@ export default function Features() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-600">
             주요 기능
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             농업 경영에 필요한 모든 기능을 한 곳에서 제공합니다
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-green-600">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -96,8 +96,8 @@ export default function Features() {
               <div className={`inline-flex items-center justify-center w-14 h-14 rounded-lg ${feature.color} text-white mb-4`}>
                 <feature.icon className="w-7 h-7" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">{feature.title}</h3>
+              <p className="text-gray-700">{feature.description}</p>
             </motion.div>
           ))}
         </div>

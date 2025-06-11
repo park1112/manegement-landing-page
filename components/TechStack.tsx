@@ -47,12 +47,12 @@ export default function TechStack() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-600">
             기술 스택
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             최신 기술로 구축된 안정적이고 확장 가능한 시스템
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-green-600">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {techStack.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
@@ -79,8 +79,8 @@ export default function TechStack() {
                       <Check className="w-5 h-5 text-green-500" />
                     </div>
                     <div className="ml-3">
-                      <h4 className="font-semibold">{tech.name}</h4>
-                      <p className="text-sm text-gray-600">{tech.description}</p>
+                      <h4 className="font-semibold text-gray-900">{tech.name}</h4>
+                      <p className="text-sm text-gray-700">{tech.description}</p>
                     </div>
                   </motion.div>
                 ))}
