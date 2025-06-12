@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import JSZip from 'jszip'
 
 interface FileItem {
   id: string
@@ -15,6 +16,7 @@ export default function FileRenamer() {
   const [startNumber, setStartNumber] = useState(1)
   const [digitPadding, setDigitPadding] = useState(3)
   const [isDragging, setIsDragging] = useState(false)
+  const [isDownloading, setIsDownloading] = useState(false)
 
   const processFiles = (selectedFiles: File[]) => {
     const newFiles = selectedFiles.map((file, index) => {
@@ -72,17 +74,42 @@ export default function FileRenamer() {
     ))
   }
 
-  const downloadFiles = () => {
-    files.forEach(fileItem => {
-      const url = URL.createObjectURL(fileItem.file)
+  const downloadFiles = async () => {
+    setIsDownloading(true)
+    
+    try {
+      const zip = new JSZip()
+      
+      // 모든 파일을 ZIP에 추가
+      for (const fileItem of files) {
+        const arrayBuffer = await fileItem.file.arrayBuffer()
+        zip.file(fileItem.newName, arrayBuffer)
+      }
+      
+      // ZIP 파일 생성
+      const blob = await zip.generateAsync({ 
+        type: 'blob',
+        compression: 'DEFLATE',
+        compressionOptions: {
+          level: 6
+        }
+      })
+      
+      // ZIP 파일 다운로드
+      const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      a.download = fileItem.newName
+      a.download = `renamed_files_${new Date().getTime()}.zip`
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
       URL.revokeObjectURL(url)
-    })
+    } catch (error) {
+      console.error('Error creating zip:', error)
+      alert('파일 압축 중 오류가 발생했습니다.')
+    } finally {
+      setIsDownloading(false)
+    }
   }
 
   const regenerateNames = () => {
@@ -208,9 +235,20 @@ export default function FileRenamer() {
 
               <button
                 onClick={downloadFiles}
-                className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-300"
+                disabled={isDownloading}
+                className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center"
               >
-                변경된 이름으로 다운로드
+                {isDownloading ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    압축 중...
+                  </>
+                ) : (
+                  'ZIP 파일로 다운로드'
+                )}
               </button>
             </>
           )}
