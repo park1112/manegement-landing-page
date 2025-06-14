@@ -180,7 +180,9 @@ export default function FileRenamer() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold mb-4 text-gray-900">파일 선택</h2>
+          <h2 className="text-xl font-semibold mb-4 text-gray-900">
+            파일 선택 {files.length > 0 && <span className="text-sm font-normal text-gray-600">({files.length}개 선택됨)</span>}
+          </h2>
           
           <div className="mb-6">
             <label 
@@ -215,7 +217,15 @@ export default function FileRenamer() {
           {files.length > 0 && (
             <>
               <div className="mb-4">
-                <h3 className="text-lg font-medium mb-3 text-gray-900">파일 목록</h3>
+                <div className="flex justify-between items-center mb-3">
+                  <h3 className="text-lg font-medium text-gray-900">파일 목록</h3>
+                  <button
+                    onClick={() => setFiles([])}
+                    className="text-sm text-red-600 hover:text-red-700 font-medium"
+                  >
+                    모두 지우기
+                  </button>
+                </div>
                 <div className="space-y-2">
                   {files.map((file) => (
                     <div key={file.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-md">
